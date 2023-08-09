@@ -1,0 +1,18 @@
+streams:
+  replicas: 2
+  
+  # Your Streams App.
+  image:
+    registry: ""
+    repository: "library/kstreams-my-first-streams"
+    tag: latest
+
+  # e.g.)
+  # nodeSelector:
+  #   alpaka/node-type: worker
+  nodeSelector: {}
+    
+  kafka: 
+    # Your Kafka Broker API
+    server: "testbed-kafka-headless:9092"
+

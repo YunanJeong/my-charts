@@ -1,0 +1,21 @@
+streams:
+  replicas: 2
+  
+  # Your Streams App.
+  image:
+    registry: ""
+    repository: "library/kstreams-my-first-streams"
+    tag: latest
+  # image:
+  #   registry: private.docker.wai
+  #   repository: "yunan/ksa-mavenapp"
+  #   tag: 0.0.1
+
+  # e.g.)
+  # nodeSelector:
+  #   alpaka/node-type: worker
+  nodeSelector: {}
+    
+  kafka: 
+    # Your Kafka Broker API
+    server: "testbed-kafka-headless:9092"
