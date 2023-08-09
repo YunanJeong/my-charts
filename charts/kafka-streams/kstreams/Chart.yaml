@@ -1,12 +1,13 @@
 apiVersion: v2
 name: kafka-streams
-description: Kafka Streams 예제를 위한 차트
-
+description: Kafka Streams Deployment
 type: application
 
-version: 0.0.2
+# 차트 버전
+version: 0.0.3
 
-appVersion: "0.0.2"
+# 앱 버전
+appVersion: "0.0.3"
 
 #dependencies:
 #  - name: kafka
