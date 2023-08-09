@@ -1,1 +1,1 @@
-# my-charts
+# my-helm-charts
