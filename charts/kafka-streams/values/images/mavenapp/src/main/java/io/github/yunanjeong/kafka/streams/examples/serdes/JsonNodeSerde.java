@@ -1,4 +1,4 @@
-package com.webzen.gitlabai.kafka.streams.serdes;
+package io.github.yunanjeong.kafka.streams.examples.serdes;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

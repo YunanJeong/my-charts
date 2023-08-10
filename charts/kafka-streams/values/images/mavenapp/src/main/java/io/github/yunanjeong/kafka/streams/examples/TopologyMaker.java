@@ -1,5 +1,7 @@
 package io.github.yunanjeong.kafka.streams.examples;
 
+import io.github.yunanjeong.kafka.streams.examples.serdes.JsonNodeSerde;
+
 import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsBuilder;
 import org.apache.kafka.streams.Topology;
@@ -15,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.webzen.gitlabai.kafka.streams.serdes.JsonNodeSerde;
+
 
 
 public class TopologyMaker {

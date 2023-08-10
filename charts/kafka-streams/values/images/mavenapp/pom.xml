@@ -34,7 +34,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.github.haje01.kafka.streams.examples.HashSplitApp</mainClass>
+                            <mainClass>io.github.yunanjeong.kafka.streams.examples.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

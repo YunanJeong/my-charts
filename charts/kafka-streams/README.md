@@ -16,11 +16,14 @@
 ## 실행
 
 ```sh
+# registry   e.g.): private.docker.wai
+# repository e.g.): yunan
+
 # 개발
-skaffold dev -p mavenapp --default-repo="127.0.0.1:5000/yunan" --tag=alpha
+skaffold dev -p mavenapp --default-repo="private.docker.wai/yunan" --tag=alpha
 
 # App. 이미지 빌드 및 push
-skaffold build --default-repo="127.0.0.1:5000/yunan" --tag=live --push
+skaffold build --default-repo="private.docker.wai/yunan" --tag=live --push
 
 # 배포설치
 helm install mavenapp kstreams/ -f values/mavenapp.yaml

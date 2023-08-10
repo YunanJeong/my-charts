@@ -1,7 +1,7 @@
 streams:
   replicas: 2
   
-  # Your Streams App.
+  # Your Streams App Image.
   image:
     registry: ""
     repository: "library/kstreams-mavenapp"
