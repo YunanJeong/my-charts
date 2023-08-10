@@ -4,11 +4,11 @@ streams:
   # Your Streams App.
   image:
     registry: ""
-    repository: "library/kstreams-my-first-streams"
+    repository: "library/kstreams-mavenapp"
     tag: latest
   # image:
   #   registry: private.docker.wai
-  #   repository: "yunan/ksa-mavenapp"
+  #   repository: "yunan/kstreams-mavenapp"
   #   tag: 0.0.1
 
   # e.g.)
