@@ -39,7 +39,8 @@ helm package kstreams/
 
 ```sh
 # 개발용 이미지 빌드
-skaffold build
+# skaffold build -p {skaffold's profile}
+skaffold build -p mavenapp
 
 # 개발모드
 # skaffold dev -p {skaffold's profile}
