@@ -12,7 +12,7 @@
 그러나 **Kafka Streams 차트에서는,
 앱이(image.repository)가 지속적으로 바뀌어야** 한다. 여러 요구사항과 유스케이스에 따른 비즈니스로직을 일반화하기 어렵기 때문이다.
 
-이것이 헬름차트로 구현되려면 **이미지 자체가 헬름 차트의 커스텀 Value**와 유사하게 취급될 필요가 있다.
+이것이 헬름차트로 구현되려면 **이미지 자체(Docker Context)가 헬름 차트의 커스텀 Value**인 것처럼 취급될 필요가 있다.
 
 따라서 본 저장소에서는 헬름 차트 파일(kstreams/)뿐 아니라 Kafka Streams 앱 배포 예시(values/images/)도 함께 첨부한다.
 
@@ -24,7 +24,7 @@
 ├── skaffold.yaml      # 차트 개발용 skaffold
 └── values/            # 커스텀 value 오버라이딩 예시
     ├── images/           
-    │   └── mavenapp/     
+    │   └── mavenapp/    # 앱 'mavenapp'의 Docker Context
     └── mavenapp.yaml
 ```
 
