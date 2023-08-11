@@ -1,5 +1,5 @@
 apiVersion: v2
-name: kafka-streams
+name: kstreams
 description: Kafka Streams Deployment
 type: application
 
