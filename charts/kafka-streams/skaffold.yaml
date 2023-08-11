@@ -2,7 +2,7 @@ apiVersion: skaffold/v4beta3
 kind: Config 
 
 build:
-  # 로컬에서만 빌드. # push하고싶을땐 cli에서 --default-repo와 --push옵션 추가
+  # 로컬(도커 데몬)에서만 빌드. # push하고싶을땐 cli에서 --default-repo와 --push옵션 추가
   local:
     push: false
   artifacts:
