@@ -3,13 +3,9 @@ streams:
   
   # Your Streams App Image.
   image:
-    registry: ""
-    repository: "library/kstreams-mavenapp"
-    tag: latest
-  # image:
-  #   registry: private.docker.wai
-  #   repository: "yunan/kstreams-mavenapp"
-  #   tag: 0.0.1
+    registry: private.docker.wai
+    repository: "yunan/kstreams-mavenapp"
+    tag: 0.0.3
 
   # e.g.)
   # nodeSelector:
@@ -19,3 +15,6 @@ streams:
   kafka: 
     # Your Kafka Broker API
     server: "testbed-kafka-headless:9092"
+    # If true, Streams waits Kafka
+    readinessCheck:
+      enabled: true

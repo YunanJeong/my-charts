@@ -45,6 +45,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
 
+      {{- if .Values.streams.kafka.readinessCheck.enabled }}
       initContainers:
         - name: streams-waits-kafka
           image: bitnami/kafka:latest
@@ -64,6 +65,7 @@ spec:
                   echo "Kafka broker Ready"
                   break
                 fi
-
               done
+              
+      {{- end }}
 

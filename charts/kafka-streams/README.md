@@ -18,6 +18,7 @@
 
 ```sh
 ├── kstreams/          # 헬름 차트
+├── chartrep/          # 배포용 헬름 차트 아카이브
 ├── skaffold.yaml      # 차트 개발용 skaffold
 └── values/            # 커스텀 value 오버라이딩 예시
     ├── images/           
@@ -25,20 +26,32 @@
     └── mavenapp.yaml
 ```
 
-## 실행
+## 차트
 
 ```sh
-# registry   e.g.): private.docker.wai/yunan
+# 배포용 차트 아카이브 생성
+helm package kstreams/
+```
 
-# App. 이미지 빌드
-skaffold build --default-repo="private.docker.wai/yunan" --tag=alpha
+## 스트림즈 앱 개발
 
-# 개발
-skaffold dev -p mavenapp --default-repo="private.docker.wai/yunan" --tag=alpha
+```sh
+# 개발용 이미지 빌드
+skaffold build
 
-# App. 이미지 빌드 및 push
-skaffold build --default-repo="private.docker.wai/yunan" --tag=live
+# 개발모드
+# skaffold dev -p {skaffold's profile}
+skaffold dev -p mavenapp
 
+# 배포용 이미지 빌드 및 push
+# skaffold build --default-repo="{registry}" --tag={version} --push
+skaffold build --default-repo="private.docker.wai/yunan" --tag=live --push
+```
+
+## 앱 배포
+
+```sh
 # 배포설치
+# helm install {releaseName} {chart} -f {value.yaml}
 helm install mavenapp kstreams/ -f values/mavenapp.yaml
 ```

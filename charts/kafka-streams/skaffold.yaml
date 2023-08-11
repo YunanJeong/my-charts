@@ -1,11 +1,15 @@
 apiVersion: skaffold/v4beta3 
 kind: Config 
 
-build: 
+build:
+  # 로컬에서만 빌드. # push하고싶을땐 cli에서 --default-repo와 --push옵션 추가
+  local:
+    push: false
   artifacts:
-    - image: kstreams-mavenapp           # 생성(build)할 이미지 이름(registry) 지정
+    - image: kstreams-mavenapp           # 생성(build)할 이미지 이름(repository) 지정
       context: values/images/mavenapp    # 차트 개발용 샘플 이미지
 
+  
 deploy:
   # skaffold로 deploy동작이 포함된 명령어 실행시, helm으로 이를 수행하겠다는 뜻
   helm:  
