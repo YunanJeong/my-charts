@@ -4,7 +4,7 @@ kind: Config
 build:
   local:
     push: false                  # 로컬(도커 데몬)에서만 빌드 # push하고싶을땐 cli에서 --default-repo와 --push옵션 추가
-  # artifacts:
+  artifacts: []
   #  - image: xxxxx              # 생성할 이미지 이름(repository) 지정
   #    context: xxx/xxx          # dockerfile 및 관련 파일 위치
   
