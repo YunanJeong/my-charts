@@ -48,7 +48,7 @@ skaffold dev -p mavenapp
 
 # 배포용 이미지 빌드 및 push
 # skaffold build -p {skaffold's profile} --default-repo="{registry}" --tag={version} --push
-skaffold build -p mavenapp -d "private.docker.wai/yunan" --tag=live --push
+skaffold build -p mavenapp -d "private.docker.wai/yunan" -t live --push
 ```
 
 ## 앱 배포
@@ -56,5 +56,5 @@ skaffold build -p mavenapp -d "private.docker.wai/yunan" --tag=live --push
 ```sh
 # 배포설치
 # helm install {releaseName} {chart} -f {value.yaml}
-helm install mavenapp kstreams/ -f values/mavenapp.yaml
+helm install mavenapp chartrepo/kstreams-0.0.3tgz -f values/mavenapp.yaml
 ```

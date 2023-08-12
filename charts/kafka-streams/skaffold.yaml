@@ -25,7 +25,7 @@ profiles:
         path: /build/artifacts
         value:
           - image: kstreams-mavenapp   
-            context: values/images/mavenapp/
+            context: sample-values/mavenapp/image/
       - op: add
         path: /deploy/helm/releases
         value:
@@ -33,7 +33,7 @@ profiles:
             chartPath: kstreams/
             skipBuildDependencies: true
             valueFiles:
-              - values/mavenapp.yaml
+              - sample-values/mavenapp/value.yaml
       
 
   
