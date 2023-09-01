@@ -4,7 +4,7 @@ streams:
   # Your Streams App.
   image:
     registry: ""
-    repository: "library/kstreams-my-first-streams"
+    repository: "library/streams"
     tag: latest
 
   # e.g.)
@@ -18,3 +18,8 @@ streams:
     readinessCheck:
       enabled: true
 
+env:
+  - name: KEY
+    value: sampleenv
+  # - name: KEY
+  #   value: ${MY_SECRET_KEY}

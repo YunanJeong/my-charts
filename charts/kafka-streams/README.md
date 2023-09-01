@@ -56,5 +56,5 @@ skaffold build -p mavenapp -d "private.docker.wai/yunan" -t live --push
 ```sh
 # 배포설치
 # helm install {releaseName} {chart} -f {value.yaml}
-helm install mavenapp chartrepo/kstreams-0.0.3tgz -f values/mavenapp.yaml
+helm install mavenapp chartrepo/kstreams-0.0.4.tgz -f values/mavenapp.yaml
 ```

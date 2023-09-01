@@ -4,8 +4,8 @@ description: Kafka Streams Deployment
 type: application
 
 # 차트 버전
-version: 0.0.3
+version: 0.0.4
 
 # 앱 버전은 차트 버전과 동일하게 표기한다. 실제 Streams 앱 버전은 별도 관리한다.
-appVersion: "0.0.3"
+appVersion: "0.0.4"
 

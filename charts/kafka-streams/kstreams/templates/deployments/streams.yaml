@@ -27,9 +27,12 @@ spec:
           image: '{{ include "kstreams.image" .Values.streams.image }}'
           imagePullPolicy: IfNotPresent
           env:  # 전달할 환경변수
+            {{- if .Values.env }}
+            {{- toYaml .Values.env | nindent 12 }}
+            {{- end }}
             - name: KAFKA_BROKER
               value: {{ .Values.streams.kafka.server }}
-
+              
           resources:
             {{- toYaml .Values.streams.resources | nindent 12 }}
       {{- with .Values.streams.nodeSelector }}
