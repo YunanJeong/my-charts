@@ -15,8 +15,9 @@ streams:
   kafka: 
     # Your Kafka Broker API
     server: "testbed-kafka-headless:9092"
+    # If true, Streams waits Kafka
     readinessCheck:
-      enabled: true
+      enabled: false
 
 env:
   - name: KEY

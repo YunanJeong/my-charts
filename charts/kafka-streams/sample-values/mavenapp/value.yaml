@@ -3,9 +3,9 @@ streams:
   
   # Your Streams App Image.
   image:
-    registry: private.docker.wai
+    registry: docker.wai
     repository: "yunan/kstreams-mavenapp"
-    tag: 0.0.3
+    tag: 0.0.4
 
   # e.g.)
   # nodeSelector:
@@ -18,3 +18,9 @@ streams:
     # If true, Streams waits Kafka
     readinessCheck:
       enabled: true
+
+env:
+  - name: KEY
+    value: sample-env
+  # - name: KEY
+  #   value: ${MY_SECRET_KEY}
