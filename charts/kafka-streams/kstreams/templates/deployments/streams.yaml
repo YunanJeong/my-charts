@@ -18,21 +18,16 @@ spec:
       labels:
         {{- include "kstreams.selectorLabels" . | nindent 8 }}
     spec:
-      {{- with .Values.streams.nodeSelector }}
-      nodeSelector:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}-streams
           image: '{{ include "kstreams.image" .Values.streams.image }}'
           imagePullPolicy: IfNotPresent
           env:  # 전달할 환경변수
-            {{- if .Values.env }}
-            {{- toYaml .Values.env | nindent 12 }}
+            {{- with .Values.env }}
+            {{- toYaml . | nindent 12 }}
             {{- end }}
             - name: KAFKA_BROKER
               value: {{ .Values.streams.kafka.server }}
-              
           resources:
             {{- toYaml .Values.streams.resources | nindent 12 }}
       {{- with .Values.streams.nodeSelector }}
@@ -47,7 +42,6 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-
       {{- if .Values.streams.kafka.readinessCheck.enabled }}
       initContainers:
         - name: streams-waits-kafka
