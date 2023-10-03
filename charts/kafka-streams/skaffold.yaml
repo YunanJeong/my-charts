@@ -17,7 +17,7 @@ deploy:
       #   setValueTemplates: xxx # Helm 배포시 개별 value 할당. valuesFiles보다 우선순위가 높다.
       #   valuesFiles: xxx.yml   # Helm 배포시 overriding values 파일. setValueTemplates 대상 외 나머지 value들만 할당
                                  # 우선순위 skaffold CLI options > setValueTemplates > valuesFiles
-      
+                                   # 개별 yaml키 값에 대해서, 우선순위가 높을 수록 마지막에 적용된다.
 # skaffold 실행시 profile을 선택하여 위 build, deploy 등에 Override할 수 있다.
 profiles:
   - name: mavenapp
