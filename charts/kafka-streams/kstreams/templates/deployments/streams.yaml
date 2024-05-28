@@ -23,7 +23,7 @@ spec:
           image: '{{ include "kstreams.image" .Values.streams.image }}'
           imagePullPolicy: IfNotPresent
           env:  # 전달할 환경변수
-            {{- range $env_key, $env_value := .Values.streams.envs }}
+            {{- range $env_key, $env_value := .Values.streams.env }}
             - name: {{ $env_key }}
               value: {{ tpl ($env_value | quote) $ }} 
             {{- end }}
