@@ -17,10 +17,8 @@ streams:
     tag: latest
 
   env:
-    - name: KEY
-      value: sampleenv
-    # - name: KEY
-    #   value: ${MY_SECRET_KEY}
+    TZ: Asia/Seoul
+    # MY_KEY: ${MY_SECRET_KEY}
   
   kafka: 
     # Your Kafka Broker API

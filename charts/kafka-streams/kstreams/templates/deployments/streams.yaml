@@ -23,13 +23,16 @@ spec:
           image: '{{ include "kstreams.image" .Values.streams.image }}'
           imagePullPolicy: IfNotPresent
           env:  # 전달할 환경변수
-            {{- with .Values.env }}
-            {{- toYaml . | nindent 12 }}
+            {{- range $env_key, $env_value := .Values.streams.envs }}
+            - name: {{ $env_key }}
+              value: {{ tpl ($env_value | quote) $ }} 
             {{- end }}
             - name: KAFKA_BROKER
               value: {{ .Values.streams.kafka.server }}
+          {{- with .Values.streams.resources }}
           resources:
             {{- toYaml .Values.streams.resources | nindent 12 }}
+          {{- end }}
       {{- with .Values.streams.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
