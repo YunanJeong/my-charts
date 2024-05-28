@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "kstreams.fullname" . }}-streams
+  name: {{ include "kstreams.fullname" . }}-deploy
   labels:
     {{- include "kstreams.labels" . | nindent 4 }}
 spec:
@@ -19,7 +19,7 @@ spec:
         {{- include "kstreams.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-        - name: {{ .Chart.Name }}-streams
+        - name: {{ .Chart.Name }}-app
           image: '{{ include "kstreams.image" .Values.streams.image }}'
           imagePullPolicy: IfNotPresent
           env:  # 전달할 환경변수
@@ -42,10 +42,11 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+
       {{- if .Values.streams.kafka.readinessCheck.enabled }}
       initContainers:
-        - name: streams-waits-kafka
-          image: bitnami/kafka:latest
+        - name: waits-for-kafka
+          image: {{ .Values.streams.kafka.readinessCheck.image }}
           imagePullPolicy: IfNotPresent
           command: 
             - bash 

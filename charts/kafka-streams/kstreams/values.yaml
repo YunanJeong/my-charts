@@ -1,5 +1,14 @@
 streams:
-  replicas: 2
+  replicas: 1
+  podAnnotations: {}
+  affinity: {}
+  tolerations: {}
+  resources: {}
+  
+  # e.g.)
+  # nodeSelector:
+  #   alpaka/node-type: worker
+  nodeSelector: {}
   
   # Your Streams App.
   image:
@@ -7,20 +16,16 @@ streams:
     repository: "library/streams"
     tag: latest
 
-  # e.g.)
-  # nodeSelector:
-  #   alpaka/node-type: worker
-  nodeSelector: {}
-    
+  env:
+    - name: KEY
+      value: sampleenv
+    # - name: KEY
+    #   value: ${MY_SECRET_KEY}
+  
   kafka: 
     # Your Kafka Broker API
     server: "testbed-kafka-headless:9092"
-    # If true, Streams waits Kafka
     readinessCheck:
       enabled: false
-
-env:
-  - name: KEY
-    value: sampleenv
-  # - name: KEY
-  #   value: ${MY_SECRET_KEY}
+      image: bitnami/kafka:latest
+      
